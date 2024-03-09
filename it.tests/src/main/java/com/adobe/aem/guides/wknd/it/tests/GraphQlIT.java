@@ -203,7 +203,7 @@ public class GraphQlIT {
         assertFalse(listPersistedQueries.isEmpty());
         PersistedQuery adventuresQuery = listPersistedQueries.stream()
                 .filter(p -> p.getShortPath().equals("/wknd-shared/adventures-all")).findFirst().get();
-        assertFalse(adventuresQuery);
+        assertNotNull(adventuresQuery);
         assertEquals("/wknd-shared/settings/graphql/persistentQueries/adventures-all", adventuresQuery.getLongPath());
         assertThat(adventuresQuery.getQuery(), containsString("adventureList") );
     }
